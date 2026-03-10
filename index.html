@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tangudu Badrinadh | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.6
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: #020617;
+            display: flex;
+            align-items: center;
+            padding: 18px 8%;
+            z-index: 1000
+        }
+
+        nav h2 {
+            color: #38bdf8;
+            margin-right: auto;
+        }
+
+        #theme-toggle {
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 20px;
+            user-select: none;
+        }
+
+        nav a {
+            color: #e5e7eb;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px
+        }
+
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px
+        }
+
+        .hero span {
+            color: #38bdf8
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 10px 0 25px;
+            color: #cbd5f5
+        }
+
+        .profile-img-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #38bdf8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #38bdf8;
+            color: #020617;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 8px
+        }
+
+        .btn-outline {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            background: transparent
+        }
+
+        section {
+            padding: 80px 10%
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 35px;
+            color: #38bdf8
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 22px;
+            border-radius: 12px;
+            transition: 0.3s
+        }
+
+        .card:hover {
+            transform: translateY(-6px)
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px
+        }
+
+        .card p {
+            font-size: 14px;
+            margin-bottom: 12px
+        }
+
+        .card a {
+            font-size: 14px;
+            color: #38bdf8;
+            text-decoration: none
+        }
+
+        .timeline {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px
+        }
+
+        .contact p {
+            margin: 6px 0
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+            font-size: 14px
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #e5e7eb;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        @media(max-width:850px) {
+            .about {
+                grid-template-columns: 1fr
+            }
+
+            .hero h1 {
+                font-size: 32px
+            }
+
+            .hero p {
+                font-size: 14px
+            }
+
+            section {
+                padding: 60px 4%
+            }
+
+            nav {
+                padding: 15px 5%
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #020617;
+                flex-direction: column;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease-in-out;
+                border-bottom: 2px solid #1e293b;
+            }
+
+            .nav-links.active {
+                max-height: 400px;
+            }
+
+            nav a {
+                margin: 15px 0;
+                font-size: 16px;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /* Light Mode Styles */
+        body.light-mode {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        body.light-mode nav {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        body.light-mode nav h2 {
+            color: #0284c7;
+        }
+        body.light-mode nav a {
+            color: #334155;
+        }
+        body.light-mode .hero span {
+            color: #0284c7;
+        }
+        body.light-mode .hero p {
+            color: #475569;
+        }
+        body.light-mode .btn {
+            background: #0284c7;
+            color: #ffffff;
+        }
+        body.light-mode .profile-pic {
+            border-color: #0284c7;
+        }
+        body.light-mode .btn-outline {
+            border-color: #0284c7;
+            color: #0284c7;
+            background: transparent;
+        }
+        body.light-mode .section-title {
+            color: #0284c7;
+        }
+        body.light-mode .skill {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        body.light-mode .card {
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        body.light-mode .card h3, body.light-mode .card a {
+            color: #0284c7;
+        }
+        body.light-mode .timeline {
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        body.light-mode footer {
+            background: #ffffff;
+            color: #334155;
+        }
+        body.light-mode .menu-icon {
+            color: #334155;
+        }
+
+        @media(max-width:850px) {
+            body.light-mode .nav-links {
+                background: #ffffff;
+                border-bottom-color: #cbd5e1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>Badrinadh</h2>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" onclick="toggleMenu()">Projects</a>
+            <a href="#education" onclick="toggleMenu()">Education</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+        <div id="theme-toggle" onclick="toggleTheme()" title="Toggle Light/Dark Mode">☀️</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="profile-img-container">
+            <img src="profile.jpeg" alt="Tangudu Badrinadh" class="profile-pic">
+        </div>
+        <h1>Hello, I'm <span>Tangudu Badrinadh</span></h1>
+        <p>
+            Computer Science and Data Science student focused on programming, data analytics, and software development.
+            I enjoy building projects and continuously improving my technical skills.
+        </p>
+
+        <div>
+            <a class="btn" href="https://github.com/badrinadh-18" target="_blank">GitHub</a>
+            <a class="btn btn-outline" href="resume.pdf" target="_blank">Download Resume</a>
+        </div>
+
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+            <p>
+                I am currently pursuing B.Tech in Computer Science and Data Science at Aditya Institute of Technology
+                and Management. My interests include software development, web development, and data visualization.
+            </p>
+
+            <p>
+                I enjoy solving problems and building projects using Python, Java, and C++. I also create dashboards
+                using Power BI to analyze data and generate insights.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">C++</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Excel</div>
+            <div class="skill">VS Code</div>
+            <div class="skill">Eclipse</div>
+        </div>
+
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects">
+
+            <div class="card">
+                <h3>Power BI Business Analytics Dashboard</h3>
+                <p>
+                    Created an interactive business analytics dashboard using Power BI and Excel datasets with KPIs and
+                    visual trend analysis.
+                </p>
+                <a href="https://github.com/badrinadh-18" target="_blank">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Static Website</h3>
+                <p>
+                    Built a multi-page static website using HTML and CSS with structured layout and navigation.
+                </p>
+                <a href="https://github.com/badrinadh-18" target="_blank">View Project</a>
+            </div>
+
+            <div class="card">
+                <h3>Future Project</h3>
+                <p>
+                    This section will include upcoming Python or Java projects that demonstrate problem-solving and
+                    programming skills.
+                </p>
+                <a href="https://github.com/badrinadh-18" target="_blank">View GitHub</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline">
+            <b>B.Tech – Computer Science and Design</b><br>
+            Aditya Institute of Technology and Management<br>
+            CGPA: 7.9
+        </div>
+
+        <div class="timeline">
+            <b>Intermediate (12th)</b><br>
+            Board of Intermediate Education Andhra Pradesh<br>
+            Score: 88%
+        </div>
+
+        <div class="timeline">
+            <b>SSC (10th)</b><br>
+            Board of Secondary Education Andhra Pradesh<br>
+            Score: 71%
+        </div>
+
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <p>Email: badrinadhtangudu1810@gmail.com</p>
+        <p>Phone: +91 8374900618</p>
+        <p>LinkedIn: https://www.linkedin.com/in/tangudu-badrinadh-583866368</p>
+        <p>GitHub: https://github.com/badrinadh-18</p>
+
+    </section>
+
+    <footer>
+        © 2026 Tangudu Badrinadh • Portfolio Website
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            if (window.innerWidth <= 850) {
+                navLinks.classList.toggle("active");
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '🌙';
+            } else {
+                themeToggle.innerHTML = '☀️';
+            }
+        }
+    </script>
+</body>
+
+</html>
