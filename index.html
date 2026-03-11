@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tangudu Badrinadh | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="web.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav>
+        <h2>Badrinadh</h2>
+        <div class="nav-links" id="navLinks">
+            <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#skills" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" onclick="toggleMenu()">Projects</a>
+            <a href="#education" onclick="toggleMenu()">Education</a>
+            <a href="#contact" onclick="toggleMenu()">Contact</a>
+        </div>
+        <div id="theme-toggle" onclick="toggleTheme()" title="Toggle Light/Dark Mode">☀️</div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="profile-img-container">
+            <img src="profile.jpeg" alt="Tangudu Badrinadh" class="profile-pic">
+        </div>
+        <h1>Hello, I'm <span>Tangudu Badrinadh</span></h1>
+        <p>
+            Computer Science and Data Science student focused on programming, data analytics, and software development.
+            I enjoy building projects and continuously improving my technical skills.
+        </p>
+
+        <div>
+            <a class="btn" href="https://github.com/badrinadh-18" target="_blank">GitHub</a>
+            <a class="btn btn-outline" href="resume.pdf" target="_blank">Download Resume</a>
+        </div>
+
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+            <p>
+                I am currently pursuing B.Tech in Computer Science and Data Science at Aditya Institute of Technology
+                and Management. My interests include software development, web development, and data visualization.
+            </p>
+
+            <p>
+                I enjoy solving problems and building projects using Python, Java, and C++. I also create dashboards
+                using Power BI to analyze data and generate insights.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">C++</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Excel</div>
+            <div class="skill">VS Code</div>
+            <div class="skill">Eclipse</div>
+        </div>
+
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="carousel-container">
+            <div class="carousel-3d" id="carousel3D">
+
+                <div class="card carousel-item" data-index="0">
+                    <h3>Power BI Dashboard</h3>
+                    <p>
+                        Created an interactive business analytics dashboard using Power BI and Excel datasets with KPIs
+                        and
+                        visual trend analysis.
+                    </p>
+                    <a href="https://github.com/badrinadh-18" target="_blank">View Project</a>
+                </div>
+
+                <div class="card carousel-item" data-index="1">
+                    <h3>Static Website</h3>
+                    <p>
+                        Built a multi-page static website using HTML and CSS with structured layout and navigation.
+                    </p>
+                    <a href="https://github.com/badrinadh-18" target="_blank">View Project</a>
+                </div>
+
+                <div class="card carousel-item" data-index="2">
+                    <h3>Future Project</h3>
+                    <p>
+                        This section will include upcoming Python or Java projects that demonstrate problem-solving and
+                        programming skills.
+                    </p>
+                    <a href="https://github.com/badrinadh-18" target="_blank">View GitHub</a>
+                </div>
+
+                <div class="card carousel-item" data-index="3">
+                    <h3>Data Science & AI</h3>
+                    <p>
+                        Exploring data analytics, machine learning algorithms and predicting future metrics based on
+                        data trends.
+                    </p>
+                    <a href="https://github.com/badrinadh-18" target="_blank">View GitHub</a>
+                </div>
+
+            </div>
+
+            <button class="carousel-arrow left-arrow" id="prevCarousel" aria-label="Previous"><i
+                    class="fas fa-chevron-left"></i></button>
+            <button class="carousel-arrow right-arrow" id="nextCarousel" aria-label="Next"><i
+                    class="fas fa-chevron-right"></i></button>
+        </div>
+
+
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline">
+            <b>B.Tech – Computer Science and Design</b><br>
+            Aditya Institute of Technology and Management<br>
+            CGPA: 7.9
+        </div>
+
+        <div class="timeline">
+            <b>Intermediate (12th)</b><br>
+            Board of Intermediate Education Andhra Pradesh<br>
+            Score: 88%
+        </div>
+
+        <div class="timeline">
+            <b>SSC (10th)</b><br>
+            Board of Secondary Education Andhra Pradesh<br>
+            Score: 71%
+        </div>
+
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact</h2>
+        <p>Feel free to reach out to me for any collaborations or queries!</p>
+
+        <div class="contact-icons">
+            <a href="mailto:badrinadhtangudu1810@gmail.com" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+918374900618" title="Call Me"><i class="fas fa-phone"></i></a>
+            <a href="https://www.linkedin.com/in/tangudu-badrinadh-583866368" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/badrinadh-18" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 Tangudu Badrinadh • Portfolio Website
+    </footer>
+
+    <script>
+        // Store and Toggle Theme
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById('theme-toggle');
+            body.classList.toggle('light-mode');
+
+            if (body.classList.contains('light-mode')) {
+                themeToggle.innerHTML = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggle.innerHTML = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            if (window.innerWidth <= 850) {
+                navLinks.classList.toggle("active");
+            }
+        }
+
+        // Initialize features on load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.getElementById('theme-toggle');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeToggle.innerHTML = '🌙';
+            }
+
+            // Scroll Reveal Animation Initialization
+            const revealElements = document.querySelectorAll('.section-title, .about, .skill, .card, .timeline, .contact');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            revealElements.forEach(el => {
+                el.classList.add('hidden-reveal');
+                revealObserver.observe(el);
+            });
+
+            // Active Nav Link Highlighting
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Add buffer so the link highlights a bit before the section hits the very top
+                    if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                    if (link.getAttribute('href').includes(current) && current !== '') {
+                        link.classList.add('active-link');
+                    }
+                });
+            });
+
+            // --- Custom Cursor Logic ---
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+
+            // Only enable custom cursor if device supports hover
+            if (window.matchMedia("(pointer: fine)").matches) {
+                document.body.classList.add('custom-cursor-active');
+
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+
+                const tails = [];
+                const numTails = 12; // Number of tail elements
+                for (let i = 0; i < numTails; i++) {
+                    const tail = document.createElement('div');
+                    tail.classList.add('cursor-tail');
+                    document.body.appendChild(tail);
+                    tails.push({ element: tail, x: mouseX, y: mouseY });
+                }
+
+                window.addEventListener('mousemove', function (e) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+
+                    cursorDot.style.left = `${mouseX}px`;
+                    cursorDot.style.top = `${mouseY}px`;
+
+                    cursorOutline.animate({
+                        left: `${mouseX}px`,
+                        top: `${mouseY}px`
+                    }, { duration: 150, fill: "forwards" });
+                });
+
+                function animateTails() {
+                    let cx = mouseX;
+                    let cy = mouseY;
+
+                    tails.forEach((tail, index) => {
+                        // Spring effect for smooth trailing
+                        tail.x += (cx - tail.x) * 0.4;
+                        tail.y += (cy - tail.y) * 0.4;
+
+                        tail.element.style.left = `${tail.x}px`;
+                        tail.element.style.top = `${tail.y}px`;
+
+                        // Shrink the tail elements as they go further back
+                        const scale = (numTails - index) / numTails;
+                        tail.element.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+                        cx = tail.x;
+                        cy = tail.y;
+                    });
+
+                    requestAnimationFrame(animateTails);
+                }
+                animateTails();
+            }
+
+            // --- 3D Carousel Logic ---
+            let currentAngle = 0;
+            const carousel3D = document.getElementById('carousel3D');
+            const nextBtn = document.getElementById('nextCarousel');
+            const prevBtn = document.getElementById('prevCarousel');
+
+            function rotateCarousel(direction) {
+                if (direction === 'next') {
+                    currentAngle -= 90;
+                } else {
+                    currentAngle += 90;
+                }
+                carousel3D.style.transform = `rotateY(${currentAngle}deg)`;
+            }
+
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => rotateCarousel('next'));
+                prevBtn.addEventListener('click', () => rotateCarousel('prev'));
+
+                // Auto Rotate
+                let autoRotate = setInterval(() => rotateCarousel('next'), 3500);
+
+                document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+                    clearInterval(autoRotate);
+                });
+                document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+                    autoRotate = setInterval(() => rotateCarousel('next'), 3500);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
