@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         carouselContainer.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
+            handleSwipe(e);
             
             // Restart auto-rotate after 5 seconds of inactivity
             clearTimeout(swipeTimeout);
@@ -202,16 +202,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 5000);
         }, { passive: true });
 
-        function handleSwipe() {
+        function handleSwipe(e) {
             const swipeThreshold = 50; // Minimum distance to trigger swipe
+            const tapThreshold = 10;   // Maximum distance for a tap
             const deltaX = touchEndX - touchStartX;
 
-            if (deltaX < -swipeThreshold) {
-                // Swiped Left -> Go Next
-                rotateCarousel('next');
-            } else if (deltaX > swipeThreshold) {
-                // Swiped Right -> Go Prev
-                rotateCarousel('prev');
+            if (Math.abs(deltaX) > swipeThreshold) {
+                // It's a swipe
+                if (deltaX < 0) {
+                    rotateCarousel('next');
+                } else {
+                    rotateCarousel('prev');
+                }
+            } else if (Math.abs(deltaX) <= tapThreshold) {
+                // It's a tap - detect side
+                const rect = carouselContainer.getBoundingClientRect();
+                const touchX = e.changedTouches[0].clientX - rect.left;
+                
+                if (touchX > rect.width / 2) {
+                    // Tapped Right Side
+                    rotateCarousel('next');
+                } else {
+                    // Tapped Left Side
+                    rotateCarousel('prev');
+                }
             }
         }
 
