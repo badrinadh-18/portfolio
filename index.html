@@ -275,10 +275,10 @@
                 window.addEventListener('mousemove', (e) => {
                     mouseX = e.clientX;
                     mouseY = e.clientY;
-                    
+
                     // Create occasional sparkles
                     if (Math.random() > 0.85) createSparkle(mouseX, mouseY);
-                    
+
                     cursorDot.style.left = `${mouseX}px`;
                     cursorDot.style.top = `${mouseY}px`;
 

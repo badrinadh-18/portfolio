@@ -370,6 +370,10 @@ footer {
 }
 
 @media(max-width:850px) {
+    .carousel-arrow {
+        display: none;
+    }
+
     .about {
         grid-template-columns: 1fr
     }
