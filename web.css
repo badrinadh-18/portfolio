@@ -55,6 +55,18 @@ nav h2 {
     font-size: 20px;
     margin-left: 20px;
     user-select: none;
+    transition: transform 0.3s ease;
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.5)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.8)); }
+}
+
+#theme-toggle:hover {
+    animation-play-state: paused;
+    transform: rotate(20deg) scale(1.2);
 }
 
 nav a {
@@ -63,12 +75,30 @@ nav a {
     margin-left: 20px;
     font-size: 14px;
     transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #38bdf8;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%);
+}
+
+nav a:hover::after,
+nav a.active-link::after {
+    width: 100%;
 }
 
 nav a:hover,
 nav a.active-link {
     color: #38bdf8;
-    font-weight: 600;
 }
 
 .hero {
@@ -83,17 +113,31 @@ nav a.active-link {
 
 .hero h1 {
     font-size: 48px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.2s;
 }
 
 .hero span {
     color: #38bdf8;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
 .hero p {
     max-width: 650px;
     margin: 10px 0 25px;
-    color: #cbd5f5
+    color: #cbd5f5;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .profile-img-container {
@@ -179,24 +223,23 @@ section {
 }
 
 .skill {
-    background: #1e293b;
+    background: rgba(30, 41, 59, 0.7);
     padding: 8px 14px;
     border-radius: 6px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 .skill:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.05);
     background: #38bdf8;
     color: #020617;
-    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.5);
+    border-color: #38bdf8;
 }
 
-.projects {
-    display: none;
-    /* Hides original flex grid, replaced by carousel-container */
-}
 
 /* 3D Carousel */
 .carousel-container {
@@ -284,14 +327,18 @@ section {
 }
 
 .card {
-    background: #1e293b;
+    background: rgba(30, 41, 59, 0.8);
     padding: 22px;
     border-radius: 12px;
-    transition: 0.3s
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
 }
 
 .card:not(.carousel-item):hover {
-    transform: translateY(-6px)
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(56, 189, 248, 0.2);
+    border-color: rgba(56, 189, 248, 0.3);
 }
 
 .card h3 {

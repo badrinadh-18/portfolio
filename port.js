@@ -43,6 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => {
         el.classList.add('hidden-reveal');
+        
+        // Add staggered delay for skills
+        if (el.classList.contains('skill')) {
+            const skills = Array.from(document.querySelectorAll('.skill'));
+            const index = skills.indexOf(el);
+            el.style.transitionDelay = `${index * 0.05}s`;
+        }
+        
         revealObserver.observe(el);
     });
 
@@ -78,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
-        let scrollY = window.scrollY;
 
         // Tail setup - Laser/Snake look
         const tails = [];
