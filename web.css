@@ -209,6 +209,9 @@ section {
     position: relative;
     margin-bottom: 20px;
     overflow: hidden;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .carousel-3d {

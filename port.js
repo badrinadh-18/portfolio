@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carousel3D = document.getElementById('carousel3D');
     const nextBtn = document.getElementById('nextCarousel');
     const prevBtn = document.getElementById('prevCarousel');
+    const carouselContainer = document.querySelector('.carousel-container');
 
     function rotateCarousel(direction) {
         if (direction === 'next') {
@@ -174,17 +175,53 @@ document.addEventListener('DOMContentLoaded', () => {
         carousel3D.style.transform = `rotateY(${currentAngle}deg)`;
     }
 
-    if (nextBtn && prevBtn) {
+    if (nextBtn && prevBtn && carouselContainer) {
         nextBtn.addEventListener('click', () => rotateCarousel('next'));
         prevBtn.addEventListener('click', () => rotateCarousel('prev'));
+
+        // Swipe Detection Logic
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let swipeTimeout;
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoRotate);
+            clearTimeout(swipeTimeout);
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            
+            // Restart auto-rotate after 5 seconds of inactivity
+            clearTimeout(swipeTimeout);
+            swipeTimeout = setTimeout(() => {
+                clearInterval(autoRotate);
+                autoRotate = setInterval(() => rotateCarousel('next'), 3500);
+            }, 5000);
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50; // Minimum distance to trigger swipe
+            const deltaX = touchEndX - touchStartX;
+
+            if (deltaX < -swipeThreshold) {
+                // Swiped Left -> Go Next
+                rotateCarousel('next');
+            } else if (deltaX > swipeThreshold) {
+                // Swiped Right -> Go Prev
+                rotateCarousel('prev');
+            }
+        }
 
         // Auto Rotate
         let autoRotate = setInterval(() => rotateCarousel('next'), 3500);
 
-        document.querySelector('.carousel-container').addEventListener('mouseenter', () => {
+        carouselContainer.addEventListener('mouseenter', () => {
             clearInterval(autoRotate);
         });
-        document.querySelector('.carousel-container').addEventListener('mouseleave', () => {
+        carouselContainer.addEventListener('mouseleave', () => {
             autoRotate = setInterval(() => rotateCarousel('next'), 3500);
         });
     }
