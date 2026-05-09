@@ -240,6 +240,20 @@ section {
     border-color: #38bdf8;
 }
 
+/* Learning skills — purple tint */
+.skill.learning-tag {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: rgba(167, 139, 250, 0.35);
+    color: #a78bfa;
+}
+
+.skill.learning-tag:hover {
+    background: #7c3aed;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.5);
+    border-color: #7c3aed;
+}
+
 
 /* 3D Carousel */
 .carousel-container {
@@ -620,6 +634,18 @@ body.light-mode .skill {
     background: #f1f5f9;
     color: #0f172a;
     border: 1px solid #e2e8f0;
+}
+
+body.light-mode .skill.learning-tag {
+    background: rgba(124, 58, 237, 0.08);
+    border-color: rgba(124, 58, 237, 0.3);
+    color: #6d28d9;
+}
+
+body.light-mode .skill.learning-tag:hover {
+    background: #7c3aed;
+    color: #fff;
+    border-color: #7c3aed;
 }
 
 body.light-mode .card {
